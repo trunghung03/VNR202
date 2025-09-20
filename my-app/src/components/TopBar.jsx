@@ -5,7 +5,7 @@ import './TopBar.css';
 
 const pages = [
   { name: 'Nội dung', path: '/' },
-  { name: 'AI Quiz', path: '/quiz' },
+  { name: 'Giải đố', path: '/quiz' },
   { name: 'Bảng Xếp Hạng', path: '/ranking' },
   { name: 'Hỏi AI', path: '/ask-ai' },
 ];

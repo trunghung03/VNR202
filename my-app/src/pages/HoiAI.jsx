@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import ReactMarkdown from 'react-markdown';
 import './HoiAI.css';
 
 export default function HoiAI() {
@@ -16,9 +17,10 @@ export default function HoiAI() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // Disabled auto-scroll - users can manually scroll
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -87,7 +89,11 @@ export default function HoiAI() {
                 {message.role === 'user' ? '👤' : '🤖'}
               </div>
               <div className="message-text">
-                {message.content}
+                {message.role === 'assistant' ? (
+                  <ReactMarkdown>{message.content}</ReactMarkdown>
+                ) : (
+                  message.content
+                )}
               </div>
             </div>
           </div>

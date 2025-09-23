@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "./Quiz.css"
+import { leaderboardService } from "../../firebase/leaderboardService"
 
 const quizData = [
   {
@@ -173,6 +174,10 @@ export default function QuizSection() {
   const [quizStarted, setQuizStarted] = useState(false)
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [userAnswers, setUserAnswers] = useState([])
+  const [showNameInput, setShowNameInput] = useState(false)
+  const [playerName, setPlayerName] = useState("")
+  const [submittingScore, setSubmittingScore] = useState(false)
+  const [scoreSubmitted, setScoreSubmitted] = useState(false)
 
   // Timer effect
   useEffect(() => {
@@ -227,6 +232,7 @@ export default function QuizSection() {
       setTimeLeft(30)
     } else {
       setQuizCompleted(true)
+      setShowNameInput(true) // Show name input after completing quiz
     }
   }
 
@@ -239,6 +245,37 @@ export default function QuizSection() {
     setTimeLeft(30)
     setQuizCompleted(false)
     setUserAnswers([])
+    setShowNameInput(false)
+    setPlayerName("")
+    setSubmittingScore(false)
+    setScoreSubmitted(false)
+  }
+
+  const handleNameSubmit = async () => {
+    if (!playerName.trim()) {
+      alert("Vui lòng nhập tên của bạn!")
+      return
+    }
+
+    setSubmittingScore(true)
+    try {
+      const result = await leaderboardService.addScore(playerName, score, quizData.length)
+      if (result.success) {
+        setScoreSubmitted(true)
+        setShowNameInput(false)
+      } else {
+        alert("Có lỗi xảy ra khi lưu điểm. Vui lòng thử lại!")
+      }
+    } catch (error) {
+      console.error("Error submitting score:", error)
+      alert("Có lỗi xảy ra khi lưu điểm. Vui lòng thử lại!")
+    } finally {
+      setSubmittingScore(false)
+    }
+  }
+
+  const skipNameInput = () => {
+    setShowNameInput(false)
   }
 
   const getScoreColor = () => {
@@ -293,6 +330,65 @@ export default function QuizSection() {
     const percentage = Math.round((score / quizData.length) * 100)
     const scoreClass = percentage >= 80 ? "score-excellent" : percentage >= 60 ? "score-good" : "score-poor"
 
+    // Show name input form if user hasn't submitted yet
+    if (showNameInput) {
+      return (
+        <section className="quiz-section">
+          <div className="quiz-header">
+            <h2 className="quiz-title">Hoàn Thành Quiz!</h2>
+          </div>
+
+          <div className="quiz-card">
+            <div className="quiz-rules">
+              <div className={`quiz-result-score ${scoreClass}`}>
+                {score}/{quizData.length}
+              </div>
+              <div className={`quiz-result-percentage ${scoreClass}`}>{percentage}%</div>
+              <p className="quiz-description">
+                {percentage >= 80
+                  ? "Xuất sắc! Bạn hiểu rất rõ về tư tưởng Hồ Chí Minh."
+                  : percentage >= 60
+                    ? "Khá tốt! Hãy ôn tập thêm để hiểu sâu hơn."
+                    : "Cần cố gắng hơn! Hãy đọc lại bài học và thử lại."}
+              </p>
+              
+              <div className="name-input-section">
+                <h3 className="name-input-title">Nhập tên để lưu vào bảng xếp hạng</h3>
+                <div className="name-input-container">
+                  <input
+                    type="text"
+                    value={playerName}
+                    onChange={(e) => setPlayerName(e.target.value)}
+                    placeholder="Nhập tên của bạn..."
+                    className="name-input"
+                    maxLength={50}
+                    onKeyPress={(e) => e.key === 'Enter' && handleNameSubmit()}
+                    disabled={submittingScore}
+                  />
+                  <div className="name-input-actions">
+                    <button 
+                      onClick={handleNameSubmit} 
+                      disabled={submittingScore || !playerName.trim()}
+                      className="action-button"
+                    >
+                      {submittingScore ? "Đang lưu..." : "Lưu điểm"}
+                    </button>
+                    <button 
+                      onClick={skipNameInput} 
+                      disabled={submittingScore}
+                      className="action-button secondary"
+                    >
+                      Bỏ qua
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     return (
       <section className="quiz-section">
         <div className="quiz-header">
@@ -312,6 +408,12 @@ export default function QuizSection() {
                   ? "Khá tốt! Hãy ôn tập thêm để hiểu sâu hơn."
                   : "Cần cố gắng hơn! Hãy đọc lại bài học và thử lại."}
             </p>
+            
+            {scoreSubmitted && (
+              <div className="score-submitted-message">
+                <p className="success-message">✓ Điểm số đã được lưu vào bảng xếp hạng!</p>
+              </div>
+            )}
           </div>
 
           <div className="result-actions">

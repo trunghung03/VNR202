@@ -36,6 +36,7 @@
   padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(245, 158, 11, 0.1);
+  overflow-x: auto;
 }
 
 .grid-header {
@@ -93,7 +94,7 @@
 
 .crossword-grid {
   display: grid;
-  grid-template-columns: repeat(15, minmax(0, 1fr));
+  grid-template-columns: repeat(16, minmax(0, 1fr));
   gap: 0;
   width: fit-content;
   margin: 0 auto;
@@ -115,15 +116,15 @@
 }
 
 .cell-input {
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   border: 1px solid #e5d5c8;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: bold;
   aspect-ratio: 1;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .cell-empty {
@@ -279,7 +280,26 @@
 
 @media (max-width: 768px) {
   .cell-input {
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 0.625rem;
+  }
+  
+  .crossword-grid {
+    grid-template-columns: repeat(16, minmax(20px, 1fr));
+  }
+  
+  .crossword-grid-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .cell-input {
+    width: 1.5rem;
+    height: 1.5rem;
     min-width: 24px;
     min-height: 24px;
+    font-size: 0.7rem;
   }
 }

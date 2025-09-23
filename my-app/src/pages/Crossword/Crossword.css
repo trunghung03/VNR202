@@ -1,0 +1,285 @@
+.crossword-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.crossword-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.crossword-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #b91c1c;
+  margin-bottom: 1rem;
+}
+
+.crossword-description {
+  color: #6b5b4d;
+}
+
+.crossword-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .crossword-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.crossword-grid-container {
+  background: #fefefe;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(245, 158, 11, 0.1);
+}
+
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.grid-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.grid-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-button {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hint-button {
+  background: #f5d5ae;
+  color: #2d1810;
+}
+
+.hint-button:hover {
+  background: rgba(245, 213, 174, 0.8);
+}
+
+.reset-button {
+  background: #f0f0f0;
+  color: #6b5b4d;
+}
+
+.reset-button:hover {
+  background: rgba(240, 240, 240, 0.8);
+}
+
+.solution-button {
+  background: #b91c1c;
+  color: #faf9f7;
+}
+
+.solution-button:hover {
+  background: rgba(185, 28, 28, 0.8);
+}
+
+.crossword-grid {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 0;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.grid-cell {
+  position: relative;
+}
+
+.cell-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #b91c1c;
+  z-index: 10;
+  line-height: 1;
+}
+
+.cell-input {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #e5d5c8;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  aspect-ratio: 1;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.cell-empty {
+  background: #f0f0f0;
+}
+
+.cell-selected {
+  background: #b91c1c;
+  color: #faf9f7;
+}
+
+.cell-highlighted {
+  background: #f5d5ae;
+  color: #2d1810;
+}
+
+.cell-normal {
+  background: #fefefe;
+  cursor: pointer;
+}
+
+.cell-normal:hover {
+  background: #f5d5ae;
+}
+
+.cell-input:disabled {
+  cursor: not-allowed;
+}
+
+.progress-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: #6b5b4d;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 9999px;
+  height: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  background: #b91c1c;
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.clues-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.clues-section {
+  background: #fefefe;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(245, 158, 11, 0.1);
+}
+
+.clues-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.clues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.clue-item {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clue-selected {
+  background: #f5d5ae;
+  color: #2d1810;
+}
+
+.clue-completed {
+  background: rgba(185, 28, 28, 0.1);
+  color: #b91c1c;
+}
+
+.clue-normal {
+  background: #f0f0f0;
+}
+
+.clue-normal:hover {
+  background: #f5d5ae;
+}
+
+.clue-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.clue-number {
+  font-weight: bold;
+  color: #b91c1c;
+}
+
+.clue-text-container {
+  flex: 1;
+}
+
+.clue-text {
+  font-size: 0.875rem;
+}
+
+.clue-hint {
+  font-size: 0.75rem;
+  color: #6b5b4d;
+  margin-top: 0.25rem;
+}
+
+.clue-check {
+  color: #b91c1c;
+}
+
+.completion-message {
+  background: rgba(185, 28, 28, 0.1);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.completion-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+.completion-text {
+  font-size: 0.875rem;
+  color: #b91c1c;
+}
+
+@media (max-width: 768px) {
+  .cell-input {
+    min-width: 24px;
+    min-height: 24px;
+  }
+}

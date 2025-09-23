@@ -20,25 +20,54 @@ export default function AIUsage() {
     }
   ];
 
+  const referenceDocuments = [
+    {
+      title: 'Giáo trình học phần Tư tưởng HCM',
+      description: 'Tài liệu chính thức sử dụng trong học phần, cung cấp kiến thức nền tảng về tư tưởng Hồ Chí Minh.',
+      icon: '📚'
+    },
+    {
+      title: 'Các tài liệu tham khảo bổ sung',
+      description: 'Sách, báo, tạp chí khoa học và các nguồn tài liệu uy tín khác về tư tưởng Hồ Chí Minh.',
+      icon: '📖'
+    }
+  ];
+
   return (
     <div className="ai-usage-container">
       <div className="ai-usage-header">
-        <h1>Sử dụng AI trong dự án</h1>
-        <p className="ai-usage-subtitle">Ghi chú về các công cụ AI đã được sử dụng trong quá trình phát triển</p>
+        <h1>Phụ lục</h1>
+        <p className="ai-usage-subtitle">Tài liệu sử dụng và ghi chú về các công cụ hỗ trợ</p>
       </div>
       
-      <div className="ai-usage-grid">
-        {aiUsageItems.map((item, index) => (
-          <div key={index} className="ai-usage-card">
-            <div className="ai-usage-icon">{item.icon}</div>
-            <h3 className="ai-usage-title">{item.title}</h3>
-            <p className="ai-usage-description">{item.description}</p>
-          </div>
-        ))}
+      <div className="section">
+        <h2 className="section-title">Tài liệu tham khảo</h2>
+        <div className="ai-usage-grid">
+          {referenceDocuments.map((item, index) => (
+            <div key={index} className="ai-usage-card">
+              <div className="ai-usage-icon">{item.icon}</div>
+              <h3 className="ai-usage-title">{item.title}</h3>
+              <p className="ai-usage-description">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">Sử dụng AI trong dự án</h2>
+        <div className="ai-usage-grid">
+          {aiUsageItems.map((item, index) => (
+            <div key={index} className="ai-usage-card">
+              <div className="ai-usage-icon">{item.icon}</div>
+              <h3 className="ai-usage-title">{item.title}</h3>
+              <p className="ai-usage-description">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
       
       <div className="ai-usage-footer">
-        <p>Những công cụ AI trên đã góp phần quan trọng trong việc hoàn thiện dự án HCM202 này.</p>
+        <p>Dự án này được phát triển dựa trên các tài liệu tham khảo chính thức và sự hỗ trợ của các công cụ AI hiện đại. Cam kết không copy từ tài liệu trái phép hoặc vi phạm bản quyền.</p>
       </div>
     </div>
   );

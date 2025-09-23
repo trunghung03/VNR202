@@ -6,7 +6,7 @@ import './HoiAI.css';
 export default function HoiAI() {
   const [messages, setMessages] = useState([{
     role: 'assistant',
-    content: 'Xin chào! Tôi là Gemini AI. Tôi có thể giúp bạn trả lời các câu hỏi về học tập, giải thích khái niệm, hoặc thảo luận về bất kỳ chủ đề nào. Hãy hỏi tôi bất cứ điều gì!'
+    content: '🌟 Xin chào! Tôi là AI chuyên về môn **Tư tưởng Hồ Chí Minh (HCM202)**. Tôi có thể giúp bạn:\n\n• Hiểu sâu về tư tưởng và quan điểm của Chủ tịch Hồ Chí Minh\n• Giải thích các lý luận và học thuyết trong chương trình HCM202\n• Phân tích tác phẩm và di sản tinh thần của Bác Hồ\n• Liên hệ tư tưởng HCM với thực tiễn hiện đại\n\nHãy đặt câu hỏi về bất kỳ chủ đề nào trong chương trình học!'
   }]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +40,21 @@ export default function HoiAI() {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
       
-      const result = await model.generateContent(userMessage);
+      // System prompt cho HCM202
+      const systemPrompt = `Bạn là một giảng viên chuyên về môn Tư tưởng Hồ Chí Minh (HCM202). Hãy trả lời câu hỏi một cách học thuật, chính xác và dễ hiểu, tập trung vào:
+
+1. Các quan điểm và tư tưởng cốt lõi của Chủ tịch Hồ Chí Minh
+2. Lý luận về độc lập dân tộc, dân chủ và chủ nghĩa xã hội
+3. Tư tưởng về đạo đức, văn hóa và giáo dục
+4. Quan điểm về đại đoàn kết dân tộc và quốc tế
+5. Phương pháp tư duy và lãnh đạo của Bác Hồ
+6. Ứng dụng tư tưởng HCM trong thời đại hiện tại
+
+Trả lời bằng tiếng Việt, có cấu trúc rõ ràng và dẫn chứng cụ thể khi cần thiết.
+
+Câu hỏi: ${userMessage}`;
+      
+      const result = await model.generateContent(systemPrompt);
       const response = await result.response;
       const text = response.text();
       
@@ -66,14 +80,14 @@ export default function HoiAI() {
   const resetChat = () => {
     setMessages([{
       role: 'assistant',
-      content: 'Cuộc trò chuyện đã được đặt lại. Hãy hỏi tôi bất cứ điều gì!'
+      content: '🌟 Cuộc trò chuyện đã được đặt lại. Hãy tiếp tục hỏi tôi về **Tư tưởng Hồ Chí Minh (HCM202)**! Tôi sẵn sàng hỗ trợ bạn tìm hiểu sâu hơn về di sản tinh thần vĩ đại của Bác Hồ.'
     }]);
   };
 
   return (
     <div className="hoi-ai-container">
       <div className="chat-header">
-        <h2>Chat với Gemini AI</h2>
+        <h2>💭 Hỏi AI về Tư tưởng Hồ Chí Minh</h2>
         <div className="chat-controls">
           <button onClick={resetChat} className="reset-btn">
             Đặt lại cuộc trò chuyện
@@ -122,7 +136,7 @@ export default function HoiAI() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Nhập câu hỏi của bạn..."
+            placeholder="Hỏi về tư tưởng HCM, lịch sử, quan điểm chính trị, văn hóa..."
             className="chat-input"
             rows="1"
             disabled={isLoading}

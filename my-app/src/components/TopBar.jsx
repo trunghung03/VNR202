@@ -9,6 +9,7 @@ const pages = [
   { name: 'Quiz', path: '/quiz' },
   { name: 'Bảng Xếp Hạng', path: '/ranking' },
   { name: 'Hỏi AI', path: '/ask-ai' },
+  { name: 'Sử dụng AI', path: '/ai-usage' },
 ];
 
 export default function TopBar() {

@@ -6,6 +6,7 @@ import Crossword from './pages/Crossword/Crossword'
 import BangXepHang from './pages/BangXepHang'
 import HoiAI from './pages/HoiAI'
 import Quiz from './pages/Quiz/Quiz'
+import AIUsage from './pages/AIUsage/AIUsage'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -23,6 +24,7 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/ranking" element={<BangXepHang />} />
           <Route path="/ask-ai" element={<HoiAI />} />
+          <Route path="/ai-usage" element={<AIUsage />} />
         </Routes>
       </div>
     </Router>

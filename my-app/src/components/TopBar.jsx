@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import SearchBar from './SearchBar';
 import './TopBar.css';
 
 const pages = [
@@ -15,7 +16,7 @@ export default function TopBar() {
   const location = useLocation();
   return (
     <header className="topbar">
-      <div className="topbar-title">VNR202</div>
+      <div className="topbar-title">HCM202</div>
       <nav className="topbar-nav">
         {pages.map((page) => (
           <Link
@@ -27,7 +28,7 @@ export default function TopBar() {
           </Link>
         ))}
       </nav>
-      {/* SearchBar removed to let topbar blend with banner */}
+      <SearchBar />
     </header>
   );
 }

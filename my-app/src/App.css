@@ -40,8 +40,7 @@
 
 .main-content {
   max-width: 1200px;
-  margin: 0 auto 2rem auto;
-  /* add top padding to offset the fixed header so content below banner isn't hidden */
-  padding: 6rem 2rem 2rem 2rem;
-  min-height: calc(100vh - 6rem);
+  margin: 100px auto 2rem auto;
+  padding: 2rem;
+  min-height: calc(100vh - 140px);
 }

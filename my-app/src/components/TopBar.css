@@ -1,32 +1,30 @@
 .topbar {
-  position: fixed; /* fixed so it stays on top of banner */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* match the banner gradient so the topbar visually blends seamlessly */
-  background: linear-gradient(135deg, #ff7a3d 0%, #ff3b30 100%);
-  color: white;
-  /* keep header visually above content and remove any default border */
-  border: none;
-  box-shadow: none;
+  background: #f8f9fa;
+  color: #333;
   padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-bottom: 1px solid #e9ecef;
 }
 .topbar-title {
   font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 2px;
-  color: white;
+  color: #646cff;
 }
 .topbar-nav {
   display: flex;
-  gap: 1rem; /* tighter spacing between links */
+  gap: 3rem;
 }
 .topbar-nav a {
-  color: rgba(255,255,255,0.95);
+  color: #333;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -34,30 +32,7 @@
   border-radius: 8px;
   transition: all 0.2s;
 }
-.topbar-nav a:hover {
-  background-color: rgba(255,255,255,0.06);
+.topbar-nav a.active, .topbar-nav a:hover {
+  background-color: #646cff;
   color: white;
-}
-
-/* Animated gradient underline for active link */
-.topbar-nav a.active {
-  position: relative;
-  color: white;
-}
-.topbar-nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
-  height: 4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #ff7a3d, #ff3b30, #ffb86b, #ff7a3d);
-  background-size: 200% 100%;
-  animation: gradient-slide 3s linear infinite;
-}
-
-@keyframes gradient-slide {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
 }

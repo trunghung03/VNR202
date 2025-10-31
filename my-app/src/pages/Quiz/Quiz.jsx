@@ -4,127 +4,143 @@ import { useState, useEffect } from "react"
 import "./Quiz.css"
 import { leaderboardService } from "../../firebase/leaderboardService"
 
-const quizData = [
+const quizData = 
+[
   {
-    id: 1,
-    question: "Vận dụng tư tưởng HCM cần phải nắm vững những nguyên tắc:",
-    options: ["Quan điểm lịch sử thế giới", "Quan điểm lịch sử Việt Nam", "Quan điểm lịch sử cụ thể", "Quan điểm phát triển"],
-    correctAnswer: 2,
-    explanation:
-      "Để vận dụng tư tưởng Hồ Chí Minh một cách đúng đắn, cần phải nắm vững quan điểm lịch sử cụ thể, tức là phải hiểu rõ hoàn cảnh lịch sử cụ thể mà tư tưởng đó được hình thành.",
-    category: "philosophy",
-    difficulty: "intermediate",
+    "id": 1,
+    "question": "Đại hội nào của Đảng đã xác lập đường lối chiến lược chung cho cách mạng Việt Nam giai đoạn 1954–1965?",
+    "options": ["Đại hội II (2/1951)", "Đại hội III (9/1960)", "Hội nghị Trung ương 15 (1/1959)", "Hội nghị Trung ương 9 (12/1963)"],
+    "correctAnswer": 1,
+    "explanation": "Đường lối chiến lược chung cho cả hai miền trong giai đoạn 1954-1965 đã được xác lập tại Đại hội III của Đảng vào tháng 9 năm 1960.",
+    "category": "history",
+    "difficulty": "basic"
   },
   {
-    id: 2,
-    question: "Theo HCM, xây dựng đạo đức mới, trước hết là thực hành đạo đức cách mạng, thực hành...",
-    options: ["Chí công vô tư", "Cần kiệm liêm chính", "Trung với nước, hiếu với dân", "Cần, kiệm, liêm, chính, chí công vô tư"],
-    correctAnswer: 3,
-    explanation:
-      "Theo Hồ Chí Minh, để xây dựng đạo đức mới trước hết phải thực hành đầy đủ các phẩm chất: Cần, kiệm, liêm, chính, chí công vô tư - đây là hệ thống đạo đức hoàn chỉnh của người cách mạng.",
-    category: "ideology",
-    difficulty: "basic",
+    "id": 2,
+    "question": "Theo đường lối của Đảng, cách mạng miền Bắc có vai trò gì?",
+    "options": ["Quyết định trực tiếp", "Hỗ trợ quốc tế", "Quyết định nhất", "Tiền tuyến chủ yếu"],
+    "correctAnswer": 2,
+    "explanation": "Đảng xác định cách mạng xã hội chủ nghĩa ở miền Bắc giữ vai trò quyết định nhất đối với sự phát triển của toàn bộ cách mạng Việt Nam.",
+    "category": "history",
+    "difficulty": "basic"
   },
   {
-    id: 3,
-    question: "HCM tiếp thu tư tưởng về đạo đức của Nho giáo trong việc xây dựng, đổi mới, phát triển tư tưởng đạo đức trong công tác gì?",
-    options: ["Xây dựng con người mới", "Xây dựng Đảng về đạo đức", "Xây dựng văn hóa mới", "Xây dựng xã hội mới"],
-    correctAnswer: 1,
-    explanation:
-      "Hồ Chí Minh đã tiếp thu và phát triển tư tưởng đạo đức của Nho giáo chủ yếu trong công tác xây dựng Đảng về đạo đức, tạo nên đạo đức cách mạng mới.",
-    category: "philosophy",
-    difficulty: "intermediate",
+    "id": 3,
+    "question": "Nhiệm vụ trung tâm trong công cuộc xây dựng XHCN ở miền Bắc là gì?",
+    "options": ["Cải cách ruộng đất", "Công nghiệp hóa XHCN", "Xóa nạn mù chữ", "Phát triển thương nghiệp"],
+    "correctAnswer": 1,
+    "explanation": "Đường lối cách mạng XHCN ở miền Bắc xác định công nghiệp hóa xã hội chủ nghĩa là nhiệm vụ trung tâm trong suốt thời kỳ quá độ.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 4,
-    question: "Theo Nguyễn Ái Quốc \"Công nông là gốc cách mạng, còn học trò, địa chủ nhỏ, nhà buôn nhỏ là... của cách mạng\"?",
-    options: ["Bạn bè", "Bầu bạn", "Đồng minh", "Liên minh"],
-    correctAnswer: 2,
-    explanation:
-      "Theo Nguyễn Ái Quốc, công nông là gốc cách mạng, còn học trò, địa chủ nhỏ, nhà buôn nhỏ là đồng minh của cách mạng - thể hiện quan điểm về liên minh các giai tầng trong cách mạng giải phóng dân tộc.",
-    category: "ideology",
-    difficulty: "basic",
+    "id": 4,
+    "question": "Phong trào thi đua 'Đại Phong' được triển khai trong lĩnh vực nào ở miền Bắc?",
+    "options": ["Công nghiệp", "Giáo dục", "Quân đội", "Nông nghiệp"],
+    "correctAnswer": 3,
+    "explanation": "Phong trào thi đua 'Đại Phong' là phong trào thi đua tiêu biểu trong lĩnh vực nông nghiệp ở miền Bắc.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 5,
-    question: "Nội dung cốt lõi của vấn đề dân tộc thuộc địa được HCM tiếp cận từ:",
-    options: ["Tự do dân chủ", "Quyền con người", "Khát vọng giải phóng dân tộc", "Chủ quyền dân tộc"],
-    correctAnswer: 2,
-    explanation:
-      "Hồ Chí Minh tiếp cận vấn đề dân tộc thuộc địa từ khát vọng giải phóng dân tộc - đây là động lực cơ bản thúc đẩy cuộc đấu tranh cách mạng của các dân tộc bị áp bức.",
-    category: "ideology",
-    difficulty: "intermediate",
+    "id": 5,
+    "question": "Tuyến đường vận tải chiến lược trên biển chi viện cho miền Nam được biết đến với tên gọi nào?",
+    "options": ["Đường mòn Hồ Chí Minh", "Tàu không số", "Con đường tơ lụa", "Hành lang Đông - Tây"],
+    "correctAnswer": 1,
+    "explanation": "Tuyến đường vận tải chiến lược chi viện cho miền Nam trên biển được thực hiện bởi những con 'tàu không số' đầy huyền thoại.",
+    "category": "history",
+    "difficulty": "basic"
   },
   {
-    id: 6,
-    question: "Khi nói về đại đoàn kết dân tộc, HCM cho rằng:",
-    options: ["Đại đoàn kết dân tộc là vấn đề sách lược", "Đại đoàn kết dân tộc là vấn đề chiến lược", "Đại đoàn kết dân tộc là vấn đề cấp bách", "Đại đoàn kết dân tộc là vấn đề quan trọng"],
-    correctAnswer: 1,
-    explanation:
-      "Theo Hồ Chí Minh, đại đoàn kết dân tộc là vấn đề chiến lược - có ý nghĩa quyết định thành công của cách mạng, cần được duy trì lâu dài và có tầm nhìn xa.",
-    category: "ideology",
-    difficulty: "intermediate",
+    "id": 6,
+    "question": "Hội nghị Trung ương 15 (1/1959) đã quyết định chuyển hướng chiến lược ở miền Nam sang:",
+    "options": ["Đấu tranh hòa bình", "Đấu tranh chính trị", "Sử dụng bạo lực cách mạng", "Giữ gìn lực lượng"],
+    "correctAnswer": 2,
+    "explanation": "Hội nghị Trung ương 15 (1/1959) đã đề ra Nghị quyết chuyển hướng chiến lược, xác định con đường cách mạng miền Nam là sử dụng bạo lực cách mạng.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 7,
-    question: "Theo HCM, trung với nước là tuyệt đối trung thành với sự nghiệp dựng nước và giữ nước, trung thành với con đường đi lên của đất nước; là suốt đời phấn đấu cho:",
-    options: ["Đảng, cho cách mạng", "Nhà nước, cho cách mạng", "Dân tộc, cho cách mạng", "Tổ quốc, cho cách mạng"],
-    correctAnswer: 2,
-    explanation:
-      "Theo Hồ Chí Minh, trung với nước là suốt đời phấn đấu cho dân tộc, cho cách mạng - thể hiện tinh thần yêu nước sâu sắc và lý tưởng cách mạng cao cả.",
-    category: "ideology",
-    difficulty: "basic",
+    "id": 7,
+    "question": "Phong trào nào là kết quả trực tiếp từ Nghị quyết 15, đánh dấu bước nhảy vọt của cách mạng miền Nam?",
+    "options": ["Thi đua yêu nước", "Đồng khởi", "Phá ấp chiến lược", "Tổng tiến công"],
+    "correctAnswer": 1,
+    "explanation": "Sau Nghị quyết 15, phong trào Đồng khởi (bắt đầu từ 1/1960) đã bùng nổ, đưa cách mạng miền Nam từ thế giữ gìn lực lượng sang thế tiến công.",
+    "category": "history",
+    "difficulty": "basic"
   },
   {
-    id: 8,
-    question: "Mặt trận dân tộc thống nhất trong tư tưởng HCM được xây dựng như thế nào?",
-    options: ["Là nơi tập hợp mọi người dân ở trong nước Việt Nam", "Là tổ chức tập hợp ngẫu nhiên quần chúng nhân dân", "Là khối đại đoàn kết chặt chẽ có tổ chức trên nền tảng khối liên minh công - nông - tri thức do Đảng Cộng Sản lãnh đạo", "Là nơi quy tụ mọi người Việt Nam định cư ở nước ngoài, ở bất cứ phương trời nào"],
-    correctAnswer: 2,
-    explanation:
-      "Mặt trận dân tộc thống nhất theo tư tưởng HCM là khối đại đoàn kết chặt chẽ có tổ chức trên nền tảng khối liên minh công - nông - tri thức do Đảng Cộng Sản lãnh đạo.",
-    category: "ideology",
-    difficulty: "advanced",
+    "id": 8,
+    "question": "Giai đoạn 1961–1965, đế quốc Mỹ đã triển khai chiến lược chiến tranh nào ở miền Nam?",
+    "options": ["Chiến tranh cục bộ", "Chiến tranh đặc biệt", "Chiến tranh đơn phương", "Việt Nam hóa chiến tranh"],
+    "correctAnswer": 1,
+    "explanation": "Trong giai đoạn 1961–1965, Mỹ và chính quyền Sài Gòn đã thực hiện chiến lược 'Chiến tranh đặc biệt' ở miền Nam Việt Nam.",
+    "category": "history",
+    "difficulty": "basic"
   },
   {
-    id: 9,
-    question: "Hồ Chí Minh được coi là linh hồn của cuộc kháng chiến chống Pháp trong giai đoạn nào?",
-    options: ["1946 - 1954", "1945 - 1954", "1930 - 1945", "1939 - 1945"],
-    correctAnswer: 0,
-    explanation:
-      "Hồ Chí Minh được coi là linh hồn của cuộc kháng chiến chống Pháp từ 1946 - 1954, từ khi cuộc kháng chiến toàn quốc bắt đầu đến chiến thắng Điện Biên Phủ.",
-    category: "history",
-    difficulty: "basic",
+    "id": 9,
+    "question": "Hai chiến thuật quân sự mới được Mỹ áp dụng trong 'Chiến tranh đặc biệt' là gì?",
+    "options": ["Tìm và diệt, bình định", "Đóng và giữ", "Trực thăng vận, thiết xa vận", "Dồn dân, lập ấp"],
+    "correctAnswer": 2,
+    "explanation": "Hai chiến thuật quân sự chủ yếu được Mỹ áp dụng trong 'Chiến tranh đặc biệt' là 'trực thăng vận' và 'thiết xa vận'.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 10,
-    question: "Truyền thống nào của dân tộc Việt Nam là nguồn gốc hình thành tư tưởng HCM?",
-    options: ["Truyền thống yêu nước, lạc quan yêu đời, có niềm tin vào chính nghĩa, tin vào sức mạnh của bản thân và dân tộc", "Truyền thống lạc quan, yêu đời; có niềm tin vào chính nghĩa, tin vào sức mạnh của bản thân và dân tộc", "Truyền thống nhân nghĩa, thủy chung, lạc quan, yêu đời, có niềm tin vào chính nghĩa, tin vào sức mạnh của bản thân và dân tộc", "Truyền thống đoàn kết, lạc quan, yêu đời; có niềm tin vào chính nghĩa, tin vào sức mạnh của bản thân và dân tộc"],
-    correctAnswer: 2,
-    explanation:
-      "Nguồn gốc hình thành tư tưởng Hồ Chí Minh bao gồm truyền thống nhân nghĩa, thủy chung, lạc quan, yêu đời, có niềm tin vào chính nghĩa, tin vào sức mạnh của bản thân và dân tộc.",
-    category: "philosophy",
-    difficulty: "advanced",
+    "id": 10,
+    "question": "'Ba mũi giáp công' được Đảng xác định trong cuộc đấu tranh chống 'Chiến tranh đặc biệt' bao gồm:",
+    "options": ["Kinh tế, chính trị, ngoại giao", "Quân sự, chính trị, binh vận", "Công, nông, binh", "Rừng núi, đồng bằng, đô thị"],
+    "correctAnswer": 1,
+    "explanation": "Đảng đã chỉ đạo tiến công địch trên cả ba vùng chiến lược bằng ba mũi giáp công: quân sự, chính trị và binh vận.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 11,
-    question: "Khái niệm con người trong tư tưởng Hồ Chí Minh để chỉ:",
-    options: ["Một con người cụ thể", "Một cộng đồng người", "Con người cụ thể gắn với hoàn cảnh lịch sử cụ thể", "Tất cả các phương án"],
-    correctAnswer: 2,
-    explanation:
-      "Trong tư tưởng Hồ Chí Minh, khái niệm con người chỉ con người cụ thể gắn với hoàn cảnh lịch sử cụ thể - thể hiện quan điểm duy vật lịch sử về con người.",
-    category: "philosophy",
-    difficulty: "advanced",
+    "id": 11,
+    "question": "Tổ chức nào được thành lập vào tháng 10/1961 để trực tiếp lãnh đạo cách mạng miền Nam?",
+    "options": ["Trung ương Cục miền Nam", "Mặt trận Tổ quốc Việt Nam", "Quân giải phóng miền Nam", "Chính phủ Cách mạng lâm thời"],
+    "correctAnswer": 0,
+    "explanation": "Để củng cố sự lãnh đạo, Trung ương Cục miền Nam đã được thành lập vào tháng 10 năm 1961.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
   {
-    id: 12,
-    question: "Theo Hồ Chí Minh, đạo đức là nhân tố tạo nên:",
-    options: ["Sức mạnh, sức hấp dẫn của chủ nghĩa xã hội", "Sức mạnh, sức hấp dẫn của chủ nghĩa Mác-Lênin", "Sức mạnh, sức hấp dẫn của tư tưởng HCM"],
-    correctAnswer: 0,
-    explanation:
-      "Theo Hồ Chí Minh, đạo đức là nhân tố tạo nên sức mạnh, sức hấp dẫn của chủ nghĩa xã hội - đây là yếu tố tinh thần quan trọng thu hút quần chúng nhân dân.",
-    category: "philosophy",
-    difficulty: "intermediate",
+    "id": 12,
+    "question": "Mặt trận Dân tộc giải phóng miền Nam Việt Nam được thành lập vào thời gian nào?",
+    "options": ["Tháng 1 năm 1959", "Tháng 9 năm 1960", "Tháng 12 năm 1960", "Tháng 2 năm 1961"],
+    "correctAnswer": 2,
+    "explanation": "Mặt trận Dân tộc giải phóng miền Nam Việt Nam ra đời vào ngày 20/12/1960 để đoàn kết mọi tầng lớp nhân dân chống Mỹ - Diệm.",
+    "category": "history",
+    "difficulty": "intermediate"
   },
+  {
+    "id": 13,
+    "question": "Một trong những sai lầm nghiêm trọng trong cải cách ruộng đất ở miền Bắc là gì?",
+    "options": ["Chia đất không đều", "Bỏ qua giai cấp địa chủ", "Đấu tố sai, quy kết nhầm lẫn", "Chỉ tập trung vào nông nghiệp"],
+    "correctAnswer": 2,
+    "explanation": "Trong cải cách ruộng đất, đã xảy ra những sai lầm nghiêm trọng như quy kết địa chủ sai, áp dụng máy móc phương pháp đấu tố, dẫn tới oan sai.",
+    "category": "history",
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 14,
+    "question": "Đâu là một trong những trận thắng quân sự tiêu biểu, làm phá sản chiến thuật mới của Mỹ - Ngụy trong 'Chiến tranh đặc biệt'?",
+    "options": ["Trận Điện Biên Phủ", "Trận Ấp Bắc", "Trận Đồng Xoài", "Trận Vạn Tường"],
+    "correctAnswer": 1,
+    "explanation": "Trận Ấp Bắc (1/1963) là một minh chứng quân Mỹ - Diệm gặp thất bại nặng nề trước lực lượng vũ trang cách mạng, làm phá sản các chiến thuật mới của địch.",
+    "category": "history",
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 15,
+    "question": "Phương châm đấu tranh ở vùng đô thị miền Nam trong giai đoạn 1961-1965 là gì?",
+    "options": ["Lấy đấu tranh vũ trang là chủ yếu", "Kết hợp vũ trang và chính trị", "Lấy đấu tranh chính trị là chủ yếu", "Lấy binh vận làm trọng tâm"],
+    "correctAnswer": 2,
+    "explanation": "Theo chỉ đạo của Đảng, phương châm đấu tranh ở vùng đô thị là lấy đấu tranh chính trị làm chủ yếu.",
+    "category": "history",
+    "difficulty": "intermediate"
+  }
 ]
 
 const categories = {

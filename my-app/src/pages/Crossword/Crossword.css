@@ -94,7 +94,7 @@
 
 .crossword-grid {
   display: grid;
-  grid-template-columns: repeat(16, minmax(0, 1fr));
+  grid-template-columns: repeat(17, minmax(0, 1fr));
   gap: 0;
   width: fit-content;
   margin: 0 auto;
@@ -286,7 +286,7 @@
   }
   
   .crossword-grid {
-    grid-template-columns: repeat(16, minmax(20px, 1fr));
+    grid-template-columns: repeat(17, minmax(20px, 1fr));
   }
   
   .crossword-grid-container {

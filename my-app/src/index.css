@@ -52,4 +52,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Prevent horizontal overflow caused by full-width sections or 100vw usage */
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
 

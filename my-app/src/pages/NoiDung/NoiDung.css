@@ -1,7 +1,7 @@
 /* ArticleSection Component Styles */
 
 .article-section {
-  max-width: 64rem;
+  max-width: 80rem; /* widened so article content is clearer on large screens */
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -9,7 +9,7 @@
 /* Hero Section */
 .hero-section {
   position: relative;
-  padding: 2.5rem 1.5rem;
+  width: 100%;
   background: linear-gradient(135deg, #ff7a3d 0%, #ff3b30 100%);
   color: white;
   border-radius: 0.75rem;
@@ -17,21 +17,24 @@
   overflow: hidden;
 }
 
-/* Make hero full-bleed (stretch to viewport edges) while keeping article centered */
+/* Safer full-width hero: avoid using 100vw which can produce horizontal overflow when scrollbars are present */
 .hero-section {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  /* full-viewport width but centered safely to avoid layout shift */
+  position: relative;
+  width: 100vw; /* intentionally viewport width for full-bleed */
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box; /* ensure padding doesn't expand the box beyond viewport */
   border-radius: 0;
   padding: 3rem 2rem;
-  min-height: 80vh; /* make banner tall to cover most of viewport height */
+  /* fill the viewport so the banner covers to the bottom */
+  min-height: 100vh;
   display: flex;
-  align-items: center; /* center content vertically */
+  align-items: center;
   justify-content: center;
-  /* pull the hero up so the fixed topbar sits visually on top of it (use measured topbar height) */
   margin-top: calc(-1 * var(--topbar-height, 6rem));
-  /* add extra top padding so hero content isn't hidden under the topbar */
   padding-top: calc(3rem + var(--topbar-height, 6rem));
+  overflow: hidden;
 }
 
 
@@ -73,22 +76,65 @@
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
+
+/* Ensure the hero content sits above the blurred background */
+.hero-inner {
+  position: relative;
+  z-index: 20;
+}
+
+/* Full-bleed blurred background using a pseudo element. Uses the image from public root (/banner.jpg).
+   The blur is applied only to the background layer so overlay content stays crisp. */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  z-index: 1;
+  background-image: url('/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* keep image vibrant so orange overlay blends well */
+  filter: blur(8px) brightness(0.78) saturate(1.05);
+  transform: scale(1.03); /* cover blur edges */
+  will-change: transform, filter;
+}
+
+/* Slight dark overlay to improve text contrast */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* orange-toned overlay to keep the site's warm palette while improving contrast */
+  background: linear-gradient(180deg, rgba(255,122,61,0.18), rgba(255,59,48,0.28));
+  mix-blend-mode: multiply; /* helps the orange tint integrate with the image */
+}
+
+/* nudge the hero content (title + image) slightly upward for a tighter visual balance */
+.hero-inner {
+  transform: translateY(-4rem);
+  transition: transform 220ms ease;
+}
+
+/* hero-text flex set below (updated proportions) */
 
 .hero-text {
-  flex: 1 1 55%;
+  flex: 1 1 52%;
+  text-align: left;
 }
-
 .hero-image {
-  flex: 1 1 45%;
-  display: flex;
+  flex: 1 1 48%;
+  display: none; /* hide inline image to avoid duplication with full-bleed background */
   align-items: center;
   justify-content: center;
 }
 
 .hero-image img {
   width: 100%;
-  max-width: 420px;
+  max-width: 520px; /* increased image size slightly */
   height: auto;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(124,58,237,0.18);
@@ -96,22 +142,52 @@
   background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-inner {
-    flex-direction: column-reverse;
-    gap: 1rem;
-    text-align: center;
-  }
+/* Make sure title and other text remain readable above background */
+.hero-title {
+  text-shadow: 0 4px 18px rgba(2,6,23,0.6);
+}
 
-  .hero-text {
-    width: 100%;
-  }
+/* Title sub-structure: main + subtitle to control line-break and alignment */
+.hero-title-main {
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 800;
+  /* Primary: use -webkit-text-stroke where supported for a crisp outline */
+  -webkit-text-stroke: 1.8px #000000; /* cam-đỏ stroke */
+  /* Fallback: multi-directional text-shadow to simulate a stroke on non-WebKit browsers */
+  text-shadow:
+    1px 1px 0 #ff5a3c,
+    -1px -1px 0 #ff5a3c,
+    1px -1px 0 #ff5a3c,
+    -1px 1px 0 #ff5a3c,
+    0 1px 0 #ff5a3c,
+    0 -1px 0 #ff5a3c;
+  background: transparent; /* remove boxed background */
+  padding: 0; /* no extra box padding when using text stroke */
+  line-height: 1;
+  text-align: center;
+}
 
-  .hero-image img {
-    max-width: 320px;
+@media (max-width: 900px) {
+  .hero-title-main {
+    -webkit-text-stroke: 1.2px #fac1b7;
+    text-shadow:
+      0.8px 0.8px 0 #ff5a3c,
+      -0.8px -0.8px 0 #ff5a3c,
+      0.8px -0.8px 0 #ff5a3c,
+      -0.8px 0.8px 0 #ff5a3c,
+      0 0.8px 0 #ff5a3c,
+      0 -0.8px 0 #ff5a3c;
   }
 }
+.hero-subtitle {
+  display: block; /* force subtitle to next line */
+  margin-top: 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
 
 /* Interactive Quote Section */
 /* quote section removed in JSX; preserve minimal styles if reused */
@@ -175,7 +251,8 @@
 .article-content {
   background-color: #ffffff;
   border-radius: 0.75rem;
-  padding: 1.75rem;
+  margin-top: 40px;
+  padding: 0.5rem; /* increased padding for more breathing room */
   box-shadow: 0 8px 20px -8px rgba(124, 58, 237, 0.08);
   border-left: 6px solid rgba(124,58,237,0.08);
   line-height: 1.7;
@@ -185,7 +262,7 @@
 .section-grid {
   display: flex;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: center; /* vertically center image and text */
 }
 
 .section-grid.reverse {
@@ -203,6 +280,13 @@
   justify-content: center;
 }
 
+.section-image {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column; /* allow caption under image */
+  align-items: center;
+  justify-content: center;
+}
 .section-image img {
   width: 100%;
   max-width: 420px;
@@ -212,12 +296,13 @@
   box-shadow: 0 8px 24px rgba(16,24,40,0.08);
 }
 
-/* Card-like spacing for each section body */
-.section-body .space-y-4 {
-  padding: 1rem;
-  background: linear-gradient(180deg, rgba(124,58,237,0.02), rgba(236,72,153,0.01));
-  border-radius: 8px;
+.image-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(17,24,39,0.7);
+  text-align: center;
 }
+
 
 @media (max-width: 900px) {
   .hero-section {
@@ -227,6 +312,14 @@
   .hero-inner {
     flex-direction: column-reverse;
     gap: 1rem;
+    text-align: center;
+    /* undo the upward nudge on small screens so layout stays comfortable */
+    transform: translateY(0);
+  }
+
+  .hero-text {
+    width: 100%;
+    text-align: center;
   }
 
   .section-grid,
@@ -236,6 +329,10 @@
 
   .section-image img {
     max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 360px; /* slightly larger on mobile */
   }
 
   .article-content {

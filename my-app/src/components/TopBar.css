@@ -7,54 +7,52 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* match the banner gradient so the topbar visually blends seamlessly */
-  background: linear-gradient(135deg, #ff7a3d 0%, #ff3b30 100%);
-  color: white;
-  /* keep header visually above content and remove any default border */
-  border: none;
-  box-shadow: none;
-  padding: 1rem 2rem;
+  background: white; /* changed to white background */
+  color: #ff7a3d; /* orange text */
+  /* subtle border to separate from content */
+  border-bottom: 1px solid rgba(16,24,40,0.06);
+  padding: 1rem 1.5rem;
 }
 .topbar-title {
   font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: white;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ff7a3d; /* orange title */
 }
 .topbar-nav {
   display: flex;
-  gap: 1rem; /* tighter spacing between links */
+  gap: 1rem; /* spacing between links */
 }
 .topbar-nav a {
-  color: rgba(255,255,255,0.95);
+  color: #ff7a3d; /* orange links */
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 8px;
-  transition: all 0.2s;
+  transition: background-color 0.15s, color 0.15s, transform 0.12s;
 }
 .topbar-nav a:hover {
-  background-color: rgba(255,255,255,0.06);
-  color: white;
+  background-color: rgba(255,122,61,0.08); /* light orange hover */
+  color: #bf4f2a;
+  transform: translateY(-1px);
 }
 
 /* Animated gradient underline for active link */
 .topbar-nav a.active {
   position: relative;
-  color: white;
+  color: #bf4f2a;
+  font-weight: 700;
 }
 .topbar-nav a.active::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
-  height: 4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #ff7a3d, #ff3b30, #ffb86b, #ff7a3d);
-  background-size: 200% 100%;
-  animation: gradient-slide 3s linear infinite;
+  left: 12%;
+  right: 12%;
+  bottom: -8px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ff7a3d, #ffb86b);
 }
 
 @keyframes gradient-slide {

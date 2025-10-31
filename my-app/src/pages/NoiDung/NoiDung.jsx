@@ -6,12 +6,13 @@ export default function NoiDung() {
       <div className="hero-section">
         <div className="hero-inner">
           <div className="hero-text">
-            <h1 className="hero-title">NHIỆM VỤ CÁCH MẠNG CỦA MIỀN BẮC VÀ MIỀN NAM GIAI ĐOẠN 1954 - 1965</h1>
+            <h1 className="hero-title">
+              <span className="hero-title-main">NHIỆM VỤ CÁCH MẠNG CỦA MIỀN BẮC VÀ MIỀN NAM GIAI ĐOẠN 1954 - 1965</span>
+            </h1>
           </div>
 
           <div className="hero-image">
-            {/* Put an image file at public/assets/banner-ai.jpg or use an external URL */}
-            <img src="/public/banner.jpg" alt="Banner image" />
+            <img src="/banner.jpg" alt="Banner image" />
           </div>
         </div>
       </div>
@@ -52,9 +53,10 @@ export default function NoiDung() {
                 </div>
               </div>
 
-              <div className="section-image">
-                <img src="/assets/section-1.jpg" alt="Bối cảnh lịch sử" />
-              </div>
+              <figure className="section-image">
+                <img src="/public/1.jpg" alt="Bối cảnh lịch sử" />
+                <figcaption className="image-caption">Đại hội đại biểu toàn quốc lần thứ III</figcaption>
+              </figure>
             </div>
           </section>
 
@@ -63,11 +65,8 @@ export default function NoiDung() {
               <span className="section-number">II</span>
               Nhiệm vụ và Sự lãnh đạo của Đảng đối với Cách mạng Miền Bắc (Xây dựng CNXH)
             </h2>
-            <div className="section-grid reverse">
-              <div className="section-image">
-                <img src="/assets/section-2.jpg" alt="Cách mạng miền Bắc" />
-              </div>
-
+            {/* Split section II into two sub-grids so A and B each have an image */}
+            <div className="section-grid">
               <div className="section-body">
                 <div className="space-y-4">
                   <h4 className="subheader">A. Giai đoạn 1954–1960: Khôi phục kinh tế, cải tạo xã hội chủ nghĩa</h4>
@@ -76,7 +75,22 @@ export default function NoiDung() {
                     <li>Hoàn thành cải cách dân chủ: lãnh đạo nhân dân miền Bắc đấu tranh buộc đối phương rút quân, hoàn thành giải phóng miền Bắc; cơ bản hoàn thành cải cách ruộng đất (đến 7/1956), xóa bỏ chế độ chiếm hữu ruộng đất phong kiến.</li>
                     <li>Cải tạo xã hội chủ nghĩa: Kế hoạch 3 năm (1958–1960) phát triển kinh tế, văn hóa; cải tạo kinh tế cá thể và tư bản tư doanh; hợp tác hóa nông nghiệp theo nguyên tắc tự nguyện, cùng có lợi, quản lý dân chủ; cải tạo công thương nghiệp tư bản tư doanh bằng chính sách hoà bình (công tư hợp doanh).</li>
                   </ul>
+                </div>
+              </div>
+              <figure className="section-image">
+                <img src="/public/3.jpg" alt="Cách mạng miền Bắc - 1954-1960" />
+                <figcaption className="image-caption">Nông dân mít tinh ủng hộ chính sách cải cách ruộng đất của Đảng và Chính phủ, năm 1955
+</figcaption>
+              </figure>
+            </div>
 
+            <div className="section-grid reverse">
+              <figure className="section-image">
+                <img src="/public/2.jpg" alt="Cách mạng miền Bắc - 1961-1965" />
+                <figcaption className="image-caption">Hội nghị Trung ương lần thứ 15</figcaption>
+              </figure>
+              <div className="section-body">
+                <div className="space-y-4">
                   <h4 className="subheader">B. Giai đoạn 1961–1965: Phát triển thế tiến công và chi viện miền Nam</h4>
                   <ul>
                     <li>Nhiệm vụ trung tâm: Thực hiện Kế hoạch 5 năm lần thứ nhất (1961–1965) nhằm xây dựng cơ sở vật chất-kỹ thuật của CNXH và hoàn thành cải tạo xã hội chủ nghĩa.</li>
@@ -105,7 +119,20 @@ export default function NoiDung() {
                     <li>Phương thức đấu tranh: Chuyển từ đấu tranh quân sự sang đấu tranh chính trị; sau đó kết hợp chính trị và vũ trang (Nghị quyết 15 - 1/1959) tiến tới khởi nghĩa vũ trang.</li>
                     <li>Thắng lợi của phong trào Đồng khởi (từ 1/1960): Chuyển cách mạng miền Nam từ thế giữ gìn lực lượng sang thế tiến công.</li>
                   </ul>
+                </div>
+                <figure className="section-image">
+                  <img src="/public/6.jpg" alt="Cách mạng miền Nam - 1954-1960" />
+                  <figcaption className="image-caption">Nữ tướng Nguyễn Thị Định (thứ hai, từ phải sang) với các nữ chiến sĩ Quân giải phóng miền Nam Việt Nam
+</figcaption>
+                </figure>
+              </div>
 
+              <div className="section-grid reverse">
+                <figure className="section-image">
+                  <img src="/public/7.jpg" alt="Cách mạng miền Nam - 1961-1965" />
+                  <figcaption className="image-caption">Chủ tịch Mặt trận Dân tộc GPMNVN Nguyễn Hữu Thọ với các chiến sĩ Quân giải phóng</figcaption>
+                </figure>
+                <div className="section-body">
                   <h4 className="subheader">B. Giai đoạn 1961–1965: Đánh bại Chiến lược "Chiến tranh Đặc biệt"</h4>
                   <ul>
                     <li>Bối cảnh: Mỹ áp dụng "Chiến tranh đặc biệt" với cố vấn, vũ khí Mỹ và quân chủ lực VNCH; dùng trực thăng, thiết xa và chiến thuật chuyên nghiệp.</li>
@@ -113,12 +140,9 @@ export default function NoiDung() {
                     <li>Kết quả: Quân và dân miền Nam với tinh thần chủ động đã làm phá sản chiến lược "Chiến tranh đặc biệt" của Mỹ vào giữa năm 1965.</li>
                   </ul>
                 </div>
-
-                <div className="section-image">
-                  <img src="/assets/section-3.jpg" alt="Cách mạng miền Nam" />
-                </div>
               </div>
             </div>
+
           </section>
 
           {/* Section IV removed as requested */}

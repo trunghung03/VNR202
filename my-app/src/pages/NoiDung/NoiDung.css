@@ -44,7 +44,7 @@
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 0.5rem;
@@ -82,7 +82,7 @@
 /* Ensure the hero content sits above the blurred background */
 .hero-inner {
   position: relative;
-  z-index: 20;
+  z-index: 30;
 }
 
 /* Full-bleed blurred background using a pseudo element. Uses the image from public root (/banner.jpg).
@@ -92,13 +92,15 @@
   position: absolute;
   inset: 0; /* top:0; right:0; bottom:0; left:0 */
   z-index: 1;
-  background-image: url('/banner.jpg');
+  /* use the project's public image and anchor it to the bottom so the image "phủ ở dưới hết màn hình" */
+  background-image: url('/1.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   /* keep image vibrant so orange overlay blends well */
   filter: blur(8px) brightness(0.78) saturate(1.05);
   transform: scale(1.03); /* cover blur edges */
+  pointer-events: none; /* allow clicks to pass through to interactive content */
   will-change: transform, filter;
 }
 

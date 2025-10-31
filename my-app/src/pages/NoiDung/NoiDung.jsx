@@ -12,7 +12,7 @@ export default function NoiDung() {
           </div>
 
           <div className="hero-image">
-            <img src="/banner.jpg" alt="Banner image" />
+            <img src="/1.jpg" alt="Banner image" />
           </div>
         </div>
       </div>

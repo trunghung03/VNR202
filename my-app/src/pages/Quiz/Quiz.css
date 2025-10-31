@@ -11,7 +11,7 @@
 .quiz-title {
   font-size: 1.875rem;
   font-weight: bold;
-  color: #dc2626;
+  color: #ff5a3c;
   margin-bottom: 1rem;
 }
 
@@ -70,7 +70,7 @@
 
 .quiz-start-button {
   padding: 0.75rem 2rem;
-  background-color: #dc2626;
+  background-color: #ff5a3c;
   color: white;
   font-weight: 600;
   border-radius: 0.5rem;
@@ -80,7 +80,7 @@
 }
 
 .quiz-start-button:hover {
-  background-color: #b91c1c;
+  background-color: #cc4830;
 }
 
 .quiz-result-score {
@@ -104,7 +104,7 @@
 }
 
 .score-poor {
-  color: #dc2626;
+  color: #ff5a3c;
 }
 
 .quiz-progress {
@@ -124,7 +124,7 @@
 }
 
 .progress-fill {
-  background-color: #dc2626;
+  background-color: #ff5a3c;
   height: 0.5rem;
   border-radius: 9999px;
   transition: width 0.3s;
@@ -145,7 +145,7 @@
 
 .timer-danger {
   background-color: #fef2f2;
-  color: #dc2626;
+  color: #ff5a3c;
 }
 
 .timer-warning {
@@ -173,8 +173,8 @@
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 500;
-  background-color: rgba(220, 38, 38, 0.1);
-  color: #dc2626;
+  background-color: rgba(255, 90, 60, 0.1);
+  color: #ff5a3c;
   border-radius: 9999px;
 }
 
@@ -229,14 +229,14 @@
 }
 
 .option-button:hover {
-  border-color: rgba(220, 38, 38, 0.5);
+  border-color: rgba(255, 90, 60, 0.5);
   background-color: rgba(249, 250, 251, 0.5);
 }
 
 .option-selected {
-  border-color: #dc2626;
-  background-color: rgba(220, 38, 38, 0.05);
-  color: #dc2626;
+  border-color: #ff5a3c;
+  background-color: rgba(255, 90, 60, 0.05);
+  color: #ff5a3c;
 }
 
 .option-correct {
@@ -246,7 +246,7 @@
 }
 
 .option-incorrect {
-  border-color: #dc2626;
+  border-color: #ff5a3c;
   background-color: #fef2f2;
   color: #991b1b;
 }
@@ -281,7 +281,7 @@
 }
 
 .status-incorrect {
-  color: #dc2626;
+  color: #ff5a3c;
   font-weight: 600;
 }
 
@@ -303,7 +303,7 @@
 
 .action-button {
   padding: 0.5rem 1.5rem;
-  background-color: #dc2626;
+  background-color: #ff5a3c;
   color: white;
   border-radius: 0.5rem;
   border: none;
@@ -312,7 +312,7 @@
 }
 
 .action-button:hover {
-  background-color: #b91c1c;
+  background-color: #cc4830;
 }
 
 .action-button:disabled {
@@ -321,7 +321,7 @@
 }
 
 .action-button:disabled:hover {
-  background-color: #dc2626;
+  background-color: #ff5a3c;
 }
 
 .result-actions {
@@ -363,8 +363,8 @@
 
 .name-input:focus {
   outline: none;
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  border-color: #ff5a3c;
+  box-shadow: 0 0 0 3px rgba(255, 90, 60, 0.1);
 }
 
 .name-input:disabled {

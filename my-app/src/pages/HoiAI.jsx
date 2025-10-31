@@ -6,7 +6,7 @@ import './HoiAI.css';
 export default function HoiAI() {
   const [messages, setMessages] = useState([{
     role: 'assistant',
-    content: '🌟 Xin chào! Tôi là AI chuyên về môn **Tư tưởng Hồ Chí Minh (HCM202)**. Tôi có thể giúp bạn:\n\n• Hiểu sâu về tư tưởng và quan điểm của Chủ tịch Hồ Chí Minh\n• Giải thích các lý luận và học thuyết trong chương trình HCM202\n• Phân tích tác phẩm và di sản tinh thần của Bác Hồ\n• Liên hệ tư tưởng HCM với thực tiễn hiện đại\n\nHãy đặt câu hỏi về bất kỳ chủ đề nào trong chương trình học!'
+    content: '🌟 Xin chào! Tôi là AI chuyên về môn **Lịch sử đảng (VNR202)**. Tôi có thể giúp bạn:\n\n• Hiểu sâu về lịch sử đảng và các giai đoạn phát triển\n• Giải thích các lý luận và học thuyết trong chương trình HCM202\n• Phân tích tác phẩm và di sản tinh thần của các lãnh đạo\n• Liên hệ lịch sử đảng với thực tiễn hiện đại\n\nHãy đặt câu hỏi về bất kỳ chủ đề nào trong chương trình học!'
   }]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -40,15 +40,15 @@ export default function HoiAI() {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
       
-      // System prompt cho HCM202
-      const systemPrompt = `Bạn là một giảng viên chuyên về môn Tư tưởng Hồ Chí Minh (HCM202). Hãy trả lời câu hỏi một cách học thuật, chính xác và dễ hiểu, tập trung vào:
+  // System prompt cho HCM202
+  const systemPrompt = `Bạn là một giảng viên chuyên về môn Lịch sử đảng (HCM202). Hãy trả lời câu hỏi một cách học thuật, chính xác và dễ hiểu, tập trung vào:
 
-1. Các quan điểm và tư tưởng cốt lõi của Chủ tịch Hồ Chí Minh
+1. Các quan điểm và diễn biến lịch sử cốt lõi liên quan đến Đảng
 2. Lý luận về độc lập dân tộc, dân chủ và chủ nghĩa xã hội
-3. Tư tưởng về đạo đức, văn hóa và giáo dục
+3. Quan điểm về đạo đức, văn hóa và giáo dục trong lịch sử đảng
 4. Quan điểm về đại đoàn kết dân tộc và quốc tế
-5. Phương pháp tư duy và lãnh đạo của Bác Hồ
-6. Ứng dụng tư tưởng HCM trong thời đại hiện tại
+5. Phương pháp tư duy và lãnh đạo của các lãnh đạo Đảng
+6. Ứng dụng lịch sử đảng trong thời đại hiện tại
 
 Trả lời bằng tiếng Việt, có cấu trúc rõ ràng và dẫn chứng cụ thể khi cần thiết.
 
@@ -80,14 +80,14 @@ Câu hỏi: ${userMessage}`;
   const resetChat = () => {
     setMessages([{
       role: 'assistant',
-      content: '🌟 Cuộc trò chuyện đã được đặt lại. Hãy tiếp tục hỏi tôi về **Tư tưởng Hồ Chí Minh (HCM202)**! Tôi sẵn sàng hỗ trợ bạn tìm hiểu sâu hơn về di sản tinh thần vĩ đại của Bác Hồ.'
+      content: '🌟 Cuộc trò chuyện đã được đặt lại. Hãy tiếp tục hỏi tôi về **Lịch sử đảng (HCM202)**! Tôi sẵn sàng hỗ trợ bạn tìm hiểu sâu hơn về di sản và bối cảnh lịch sử.'
     }]);
   };
 
   return (
     <div className="hoi-ai-container">
       <div className="chat-header">
-        <h2>💭 Hỏi AI về Tư tưởng Hồ Chí Minh</h2>
+        <h2>💭 Hỏi AI về Lịch sử đảng</h2>
         <div className="chat-controls">
           <button onClick={resetChat} className="reset-btn">
             Đặt lại cuộc trò chuyện
@@ -136,7 +136,7 @@ Câu hỏi: ${userMessage}`;
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Hỏi về tư tưởng HCM, lịch sử, quan điểm chính trị, văn hóa..."
+            placeholder="Hỏi về lịch sử đảng, lịch sử, quan điểm chính trị, văn hóa..."
             className="chat-input"
             rows="1"
             disabled={isLoading}

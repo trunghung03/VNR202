@@ -22,13 +22,13 @@ export default function AIUsage() {
 
   const referenceDocuments = [
     {
-      title: 'Giáo trình học phần Tư tưởng HCM',
-      description: 'Tài liệu chính thức sử dụng trong học phần, cung cấp kiến thức nền tảng về tư tưởng Hồ Chí Minh.',
+      title: 'Giáo trình học phần Lịch sử đảng',
+      description: 'Tài liệu chính thức sử dụng trong học phần, cung cấp kiến thức nền tảng về lịch sử đảng.',
       icon: '📚'
     },
     {
       title: 'Các tài liệu tham khảo bổ sung',
-      description: 'Sách, báo, tạp chí khoa học và các nguồn tài liệu uy tín khác về tư tưởng Hồ Chí Minh.',
+      description: 'Sách, báo, tạp chí khoa học và các nguồn tài liệu uy tín khác về lịch sử đảng.',
       icon: '📖'
     }
   ];

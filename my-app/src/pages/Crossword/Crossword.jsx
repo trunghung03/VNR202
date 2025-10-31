@@ -222,7 +222,7 @@ export default function CrosswordGame() {
       <div className="crossword-header">
         <h2 className="crossword-title">Trò Chơi Ô Chữ</h2>
         <p className="crossword-description">
-          Kiểm tra kiến thức về tư tưởng Hồ Chí Minh qua trò chơi ô chữ thú vị
+          Kiểm tra kiến thức về lịch sử Đảng qua trò chơi ô chữ thú vị
         </p>
       </div>
 
@@ -345,7 +345,7 @@ export default function CrosswordGame() {
             <div className="completion-message">
               <h3 className="completion-title">Chúc mừng!</h3>
               <p className="completion-text">
-                Bạn đã hoàn thành trò chơi ô chữ. Kiến thức về tư tưởng Hồ Chí Minh của bạn thật tuyệt vời!
+                Bạn đã hoàn thành trò chơi ô chữ. Kiến thức về lịch sử Đảng của bạn thật tuyệt vời!
               </p>
             </div>
           )}

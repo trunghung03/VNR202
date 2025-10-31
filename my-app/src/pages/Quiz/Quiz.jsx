@@ -144,7 +144,7 @@ const quizData =
 ]
 
 const categories = {
-  ideology: "Tư tưởng chính trị",
+  ideology: "Lịch sử đảng",
   history: "Lịch sử",
   legacy: "Di sản",
   philosophy: "Triết học",
@@ -280,9 +280,9 @@ export default function QuizSection() {
     return (
       <section className="quiz-section">
         <div className="quiz-header">
-          <h2 className="quiz-title">Quiz Tư Tưởng Hồ Chí Minh</h2>
-          <p className="quiz-description">Kiểm tra kiến thức của bạn về tư tưởng và cuộc đời Chủ tịch Hồ Chí Minh</p>
-        </div>
+              <h2 className="quiz-title">Quiz Lịch sử đảng</h2>
+              <p className="quiz-description">Kiểm tra kiến thức của bạn về lịch sử đảng</p>
+            </div>
 
         <div className="quiz-card">
           <div className="quiz-rules">
@@ -337,7 +337,7 @@ export default function QuizSection() {
               <div className={`quiz-result-percentage ${scoreClass}`}>{percentage}%</div>
               <p className="quiz-description">
                 {percentage >= 80
-                  ? "Xuất sắc! Bạn hiểu rất rõ về tư tưởng Hồ Chí Minh."
+                  ? "Xuất sắc! Bạn hiểu rất rõ về lịch sử đảng."
                   : percentage >= 60
                     ? "Khá tốt! Hãy ôn tập thêm để hiểu sâu hơn."
                     : "Cần cố gắng hơn! Hãy đọc lại bài học và thử lại."}
@@ -394,7 +394,7 @@ export default function QuizSection() {
             <div className={`quiz-result-percentage ${scoreClass}`}>{percentage}%</div>
             <p className="quiz-description">
               {percentage >= 80
-                ? "Xuất sắc! Bạn hiểu rất rõ về tư tưởng Hồ Chí Minh."
+                ? "Xuất sắc! Bạn hiểu rất rõ về lịch sử đảng."
                 : percentage >= 60
                   ? "Khá tốt! Hãy ôn tập thêm để hiểu sâu hơn."
                   : "Cần cố gắng hơn! Hãy đọc lại bài học và thử lại."}
@@ -423,7 +423,7 @@ export default function QuizSection() {
   return (
     <section className="quiz-section">
       <div className="quiz-header">
-        <h2 className="quiz-title">Quiz Tư Tưởng Hồ Chí Minh</h2>
+        <h2 className="quiz-title">Quiz Lịch sử đảng</h2>
         <div className="quiz-progress">
           <span>
             Câu {currentQuestion + 1}/{quizData.length}

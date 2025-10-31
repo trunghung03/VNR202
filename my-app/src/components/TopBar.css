@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   background: white; /* changed to white background */
-  color: #ff7a3d; /* orange text */
+  color: #ff5a3c; /* orange text */
   /* subtle border to separate from content */
   border-bottom: 1px solid rgba(16,24,40,0.06);
   padding: 1rem 1.5rem;
@@ -17,14 +17,14 @@
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #ff7a3d; /* orange title */
+  color: #ff5a3c; /* orange title */
 }
 .topbar-nav {
   display: flex;
   gap: 1rem; /* spacing between links */
 }
 .topbar-nav a {
-  color: #ff7a3d; /* orange links */
+  color: #ff5a3c; /* orange links */
   text-decoration: none;
   font-weight: 600;
   font-size: 1.25rem;

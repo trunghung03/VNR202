@@ -94,9 +94,9 @@ export default function BangXepHang() {
   return (
     <div className="leaderboard-container">
       <div className="leaderboard-header">
-        <h2 className="leaderboard-title">🏆 Bảng Xếp Hạng Quiz Tư Tưởng Hồ Chí Minh</h2>
+        <h2 className="leaderboard-title">🏆 Bảng Xếp Hạng Quiz Lịch sử đảng</h2>
         <p className="leaderboard-description">
-          Thành tích xuất sắc của các học viên trong việc tìm hiểu tư tưởng Hồ Chí Minh
+          Thành tích xuất sắc của các học viên trong việc tìm hiểu lịch sử đảng
         </p>
       </div>
 

@@ -26,16 +26,44 @@
   font-style: italic;
 }
 
+.ai-usage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* warm palette to match NoiDung */
+  background: linear-gradient(135deg, rgba(255,122,61,0.04) 0%, rgba(255,59,48,0.02) 100%);
+  min-height: 100vh;
+}
+
+.ai-usage-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.ai-usage-header h1 {
+  font-size: 3rem;
+  color: #ff5a3c; /* warm orange-red */
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.ai-usage-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin: 0;
+  font-style: italic;
+}
+
 .section {
   margin-bottom: 4rem;
 }
 
 .section-title {
   font-size: 2rem;
-  color: #2c3e50;
+  color: #9a2b0f;
   text-align: center;
   margin-bottom: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
 }
 
@@ -46,8 +74,8 @@
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
-  height: 3px;
-  background: linear-gradient(45deg, #3498db, #2ecc71);
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a3d, #ff3b30);
   border-radius: 2px;
 }
 
@@ -59,51 +87,51 @@
 }
 
 .ai-usage-card {
-  background: white;
+  background: linear-gradient(180deg, #ffffff, #fffaf7);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem 1.75rem;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e1e8ed;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(16,24,40,0.04);
 }
 
 .ai-usage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(255,122,61,0.12);
 }
 
 .ai-usage-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-  display: block;
+  color: #ff7a3d;
 }
 
 .ai-usage-title {
-  font-size: 1.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  color: #7a2a06;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
 }
 
 .ai-usage-description {
-  color: #5a6c7d;
+  color: #374151;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.98rem;
   margin: 0;
 }
 
 .ai-usage-footer {
   text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  background: linear-gradient(90deg, rgba(255,122,61,0.03), rgba(255,59,48,0.02));
   border-radius: 8px;
   margin-top: 2rem;
 }
 
 .ai-usage-footer p {
-  color: #7f8c8d;
-  font-size: 1.1rem;
+  color: #6b7280;
+  font-size: 1rem;
   margin: 0;
   font-style: italic;
 }
@@ -123,6 +151,6 @@
   }
   
   .ai-usage-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 }

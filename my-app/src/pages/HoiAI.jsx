@@ -6,7 +6,7 @@ import './HoiAI.css';
 export default function HoiAI() {
   const [messages, setMessages] = useState([{
     role: 'assistant',
-    content: '🌟 Xin chào! Tôi là AI chuyên về môn **Lịch sử đảng (VNR202)**. Tôi có thể giúp bạn:\n\n• Hiểu sâu về lịch sử đảng và các giai đoạn phát triển\n• Giải thích các lý luận và học thuyết trong chương trình HCM202\n• Phân tích tác phẩm và di sản tinh thần của các lãnh đạo\n• Liên hệ lịch sử đảng với thực tiễn hiện đại\n\nHãy đặt câu hỏi về bất kỳ chủ đề nào trong chương trình học!'
+    content: '🌟 Xin chào! Tôi là AI chuyên về môn **Lịch sử đảng (VNR202)**. Tôi có thể giúp bạn:\n\n• Hiểu sâu về lịch sử đảng và các giai đoạn phát triển\n• Giải thích các lý luận và học thuyết trong chương trình VNR202\n• Phân tích tác phẩm và di sản tinh thần của các lãnh đạo\n• Liên hệ lịch sử đảng với thực tiễn hiện đại\n\nHãy đặt câu hỏi về bất kỳ chủ đề nào trong chương trình học!'
   }]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -40,15 +40,12 @@ export default function HoiAI() {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
       
-  // System prompt cho HCM202
-  const systemPrompt = `Bạn là một giảng viên chuyên về môn Lịch sử đảng (HCM202). Hãy trả lời câu hỏi một cách học thuật, chính xác và dễ hiểu, tập trung vào:
+  // System prompt cho VNR202
+  const systemPrompt = `Bạn là một giảng viên chuyên về môn Lịch sử đảng (VNR202). Hãy trả lời câu hỏi một cách học thuật, chính xác và dễ hiểu, tập trung vào:
 
-1. Các quan điểm và diễn biến lịch sử cốt lõi liên quan đến Đảng
-2. Lý luận về độc lập dân tộc, dân chủ và chủ nghĩa xã hội
-3. Quan điểm về đạo đức, văn hóa và giáo dục trong lịch sử đảng
-4. Quan điểm về đại đoàn kết dân tộc và quốc tế
-5. Phương pháp tư duy và lãnh đạo của các lãnh đạo Đảng
-6. Ứng dụng lịch sử đảng trong thời đại hiện tại
+Yêu cầu của bạn là trả lời cho câu hỏi về nhiệm vụ cách mạng của miền Bắc và miền Nam giai đoạn 1954 - 1965, đồng thời phân tích sự lãnh đạo của Đảng Cộng sản Việt Nam đối với cách mạng hai miền trong giai đoạn này.
+Các nguồn tài liệu bạn cung cấp là các trích đoạn từ "Giáo trình Lịch sử Đảng Cộng sản Việt Nam," trong đó, nội dung liên quan trực tiếp đến giai đoạn 1954–1965 được trình bày chi tiết trong mục II- Lãnh đạo xây dựng chủ nghĩa xã hội ở miền Bắc và kháng chiến chống đế quốc Mỹ xâm lược, giải phóng miền Nam, thống nhất đất nước (1954 - 1975), đặc biệt là tiểu mục 1. Sự lãnh đạo của Đảng đối với cách mạng hai miền Nam - Bắc (1954 - 1965) .
+
 
 Trả lời bằng tiếng Việt, có cấu trúc rõ ràng và dẫn chứng cụ thể khi cần thiết.
 

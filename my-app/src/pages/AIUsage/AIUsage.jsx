@@ -15,7 +15,7 @@ export default function AIUsage() {
     },
     {
       title: 'Thiết kế web',
-      description: 'Áp dụng AI để tạo layout, chọn màu sắc phù hợp và tối ưu hóa giao diện người dùng cho trang web HCM202.',
+      description: 'Áp dụng AI để tạo layout, chọn màu sắc phù hợp và tối ưu hóa giao diện người dùng cho trang web VNR202.',
       icon: '🎨'
     }
   ];

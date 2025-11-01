@@ -54,7 +54,7 @@ export default function NoiDung() {
               </div>
 
               <figure className="section-image">
-                <img src="/public/1.jpg" alt="Bối cảnh lịch sử" />
+                <img src="/1.jpg" alt="Bối cảnh lịch sử" />
                 <figcaption className="image-caption">Đại hội đại biểu toàn quốc lần thứ III</figcaption>
               </figure>
             </div>
@@ -78,7 +78,7 @@ export default function NoiDung() {
                 </div>
               </div>
               <figure className="section-image">
-                <img src="/public/3.jpg" alt="Cách mạng miền Bắc - 1954-1960" />
+                <img src="/3.jpg" alt="Cách mạng miền Bắc - 1954-1960" />
                 <figcaption className="image-caption">Nông dân mít tinh ủng hộ chính sách cải cách ruộng đất của Đảng và Chính phủ, năm 1955
 </figcaption>
               </figure>
@@ -86,7 +86,7 @@ export default function NoiDung() {
 
             <div className="section-grid reverse">
               <figure className="section-image">
-                <img src="/public/2.jpg" alt="Cách mạng miền Bắc - 1961-1965" />
+                <img src="/2.jpg" alt="Cách mạng miền Bắc - 1961-1965" />
                 <figcaption className="image-caption">Hội nghị Trung ương lần thứ 15</figcaption>
               </figure>
               <div className="section-body">
@@ -121,7 +121,7 @@ export default function NoiDung() {
                   </ul>
                 </div>
                 <figure className="section-image">
-                  <img src="/public/6.jpg" alt="Cách mạng miền Nam - 1954-1960" />
+                  <img src="/6.jpg" alt="Cách mạng miền Nam - 1954-1960" />
                   <figcaption className="image-caption">Nữ tướng Nguyễn Thị Định (thứ hai, từ phải sang) với các nữ chiến sĩ Quân giải phóng miền Nam Việt Nam
 </figcaption>
                 </figure>
@@ -129,7 +129,7 @@ export default function NoiDung() {
 
               <div className="section-grid reverse">
                 <figure className="section-image">
-                  <img src="/public/7.jpg" alt="Cách mạng miền Nam - 1961-1965" />
+                  <img src="/7.jpg" alt="Cách mạng miền Nam - 1961-1965" />
                   <figcaption className="image-caption">Chủ tịch Mặt trận Dân tộc GPMNVN Nguyễn Hữu Thọ với các chiến sĩ Quân giải phóng</figcaption>
                 </figure>
                 <div className="section-body">

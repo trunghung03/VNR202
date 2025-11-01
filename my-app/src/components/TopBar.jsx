@@ -27,6 +27,14 @@ export default function TopBar() {
             {page.name}
           </Link>
         ))}
+        <a
+          href="https://padlet.com/annqk569/vnr202-t-c-u-h-i-cho-nh-m-6-nh-3-i4gvq0flhz0f69ru"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-padlet-btn"
+        >
+          Đặt câu hỏi
+        </a>
       </nav>
       {/* <SearchBar /> */}
     </header>

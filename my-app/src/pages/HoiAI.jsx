@@ -77,7 +77,7 @@ Câu hỏi: ${userMessage}`;
   const resetChat = () => {
     setMessages([{
       role: 'assistant',
-      content: '🌟 Cuộc trò chuyện đã được đặt lại. Hãy tiếp tục hỏi tôi về **Lịch sử đảng (HCM202)**! Tôi sẵn sàng hỗ trợ bạn tìm hiểu sâu hơn về di sản và bối cảnh lịch sử.'
+      content: '🌟 Cuộc trò chuyện đã được đặt lại. Hãy tiếp tục hỏi tôi về **Lịch sử đảng (VNR202)**! Tôi sẵn sàng hỗ trợ bạn tìm hiểu sâu hơn về di sản và bối cảnh lịch sử.'
     }]);
   };
 
